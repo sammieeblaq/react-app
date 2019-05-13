@@ -1,17 +1,17 @@
 import React from 'react'
-import './App.css';
-import TodoItem from "./components/TodoItem/TodoItem"
-
+import './App.css'
+import Joke from "./components/Joke"
 
 const App = () => {
-    return (
-        <div className="todo-list">
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
-        </div>
-    )
+	return (
+		<div>
+			<Joke punchline="Hello there" />
+			<Joke question="Who are you" punchline="I am nobody" />
+			<Joke punchline="God oo" />
+			<Joke question="who is you" punchline="This is me" />
+			<Joke punchline="I am here" />
+		</div>
+	)
 }
 
 export default App;
