@@ -1,15 +1,21 @@
 import React from 'react'
 import './App.css'
 import Joke from "./components/Joke"
+import jokesData from "./jokesData"
 
 const App = () => {
+	const jokeComponents = jokesData.map( joke => {
+		return (
+			<Joke 
+				key={ joke.id } 
+				question={ joke.question } 
+				punchline={ joke.punchLine }
+			/> 
+		)
+});
 	return (
 		<div>
-			<Joke punchline="Hello there" />
-			<Joke question="Who are you" punchline="I am nobody" />
-			<Joke punchline="God oo" />
-			<Joke question="who is you" punchline="This is me" />
-			<Joke punchline="I am here" />
+			{ jokeComponents }
 		</div>
 	)
 }
