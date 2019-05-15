@@ -1,21 +1,14 @@
 import React from 'react'
 import './App.css'
-import Joke from "./components/Joke"
-import jokesData from "./jokesData"
+import Product from "./components/Product"
+import productData from "./vschoolProduct"
 
 const App = () => {
-	const jokeComponents = jokesData.map( joke => {
-		return (
-			<Joke 
-				key={ joke.id } 
-				question={ joke.question } 
-				punchline={ joke.punchLine }
-			/> 
-		)
-});
+	const productComponent = productData.map(item => <Product product={ item } />)
+	
 	return (
 		<div>
-			{ jokeComponents }
+			{ productComponent }
 		</div>
 	)
 }
