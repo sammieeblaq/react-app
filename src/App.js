@@ -13,7 +13,7 @@ class App extends Component {
             <div>
                 <p>Hello World</p>
                 <br/>
-                <button onClick={ handleClick }>Click Me</button>
+                <button onMouseOver={ handleClick }>Click Me</button>
             </div>
         )
     }
