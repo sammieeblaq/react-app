@@ -1,19 +1,25 @@
 import React, { Component } from 'react'
-
-function handleClick() {
-    console.log("I was clicked")
-}
+import "./App.css"
 
 class App extends Component {
     state = {
-
+        count: 0
     }
+
+
+    handleClick() {
+        this.setState(prevState => {
+            return (
+                prevState.count += 1
+            )
+        })
+    }
+
     render() {
         return (
             <div>
-                <p>Hello World</p>
-                <br/>
-                <button onMouseOver={ handleClick }>Click Me</button>
+                <h1>{ this.state.count }</h1>
+                <button onClick={ this.handleClick } >Change!</button>
             </div>
         )
     }
