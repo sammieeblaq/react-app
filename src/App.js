@@ -1,24 +1,27 @@
 import React, { Component } from 'react'
-import './App.css';
-import todosData from "./todoData"
-import TodoItem from "./components/TodoItem/TodoItem"
+import './App.css'
+import Conditional from "./Conditional"
 
 
 class App extends Component {
+    
     state = {
-        todos: todosData
+        isLoading: true
     }
 
-    handleChange = (id) => {
-        
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                isLoading: false
+            })
+        }, 1500);
     }
 
-	render() {
-        const todoComponent = this.state.todos.map(task => <TodoItem key={ task.id } todo={ task } /> )
-
+    render() {
         return (
-            <div className="todo-list">
-                { todoComponent }
+            <div>
+                { this.state.isLoading ? <h1>Is Loading...</h1> : <Conditional /> }
             </div>
         )
     }
