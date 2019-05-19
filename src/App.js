@@ -1,27 +1,30 @@
 import React, { Component } from 'react'
 import './App.css'
-import Conditional from "./Conditional"
+
 
 
 class App extends Component {
     
     state = {
-        isLoading: true
+        loggedIn: true
     }
 
 
-    componentDidMount() {
-        setTimeout(() => {
-            this.setState({
-                isLoading: false
-            })
-        }, 1500);
+    clickHandler = () => {
+        this.setState(prevState => {
+            return {
+                loggedIn: !prevState.loggedIn
+            }
+        })
     }
 
     render() {
+        let buttonText = this.state.loggedIn ? "Log out" : "Log in"
+        let displayText = this.state.loggedIn ? "Logged In" : "Logged Out"
         return (
             <div>
-                { this.state.isLoading ? <h1>Is Loading...</h1> : <Conditional /> }
+                <h1>You are { displayText }</h1>
+                <button onClick={ this.clickHandler }>{ buttonText }</button>
             </div>
         )
     }
