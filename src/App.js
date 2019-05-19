@@ -1,29 +1,27 @@
-import React, { Component } from "react"
-import "./App.css"
+import React, { Component } from 'react'
+import './App.css';
+import todosData from "./todoData"
+import TodoItem from "./components/TodoItem/TodoItem"
+
 
 class App extends Component {
-	state = {
-		count: 0
-	}
+    state = {
+        todos: todosData
+    }
 
-	handleClick = () => {
-		this.setState(prevState => {
-			return {
-				count: prevState.count + 3
-			}
-		})
-	}
-
+    handleChange = (id) => {
+        
+    }
 
 	render() {
-		return (
-			<div>
-				<h1>{ this.state.count }</h1>
-				<button onClick={ this.handleClick }>Hit Me!!!</button>
-			</div>
-		)
-	}
+        const todoComponent = this.state.todos.map(task => <TodoItem key={ task.id } todo={ task } /> )
+
+        return (
+            <div className="todo-list">
+                { todoComponent }
+            </div>
+        )
+    }
 }
 
-
-export default App
+export default App;
