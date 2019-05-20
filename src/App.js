@@ -4,30 +4,32 @@ import './App.css'
 
 
 class App extends Component {
-    
     state = {
-        loggedIn: true
-    }
+		loading: false,
+		character: {}
+	}
 
+	componentDidMount() {
+		this.setState({ loading: !false })
 
-    clickHandler = () => {
-        this.setState(prevState => {
-            return {
-                loggedIn: !prevState.loggedIn
-            }
-        })
-    }
+		fetch(`https://swapi.co/api/people/1`)
+			.then(result => result.json())
+			.then(data => {
+				this.setState({
+					loading: !false,
+					character: data
+				})
+			})
+	}
 
-    render() {
-        let buttonText = this.state.loggedIn ? "Log out" : "Log in"
-        let displayText = this.state.loggedIn ? "Logged In" : "Logged Out"
-        return (
-            <div>
-                <h1>You are { displayText }</h1>
-                <button onClick={ this.clickHandler }>{ buttonText }</button>
-            </div>
-        )
-    }
+	render() {
+		const text = this.state.loading ? "Loading..." : this.state.character.name
+		return (
+			<div>
+				{ text }
+			</div>
+		)
+	}
 }
 
 export default App;
