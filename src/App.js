@@ -10,13 +10,13 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({ loading: !false })
+		this.setState({ loading: true })
 
-		fetch(`https://swapi.co/api/people/1`)
+		fetch("https://swapi.co/api/people/1")
 			.then(result => result.json())
 			.then(data => {
 				this.setState({
-					loading: !false,
+					loading: false,
 					character: data
 				})
 			})
