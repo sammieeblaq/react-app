@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
 
-
-
 class App extends Component {
     state = {
 		loading: false,
@@ -10,13 +8,13 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({ loading: true })
-
+        this.setState({ loading: true })
+        
 		fetch("https://swapi.co/api/people/1")
 			.then(result => result.json())
 			.then(data => {
 				this.setState({
-					loading: false,
+					loading: !this.state.loading,
 					character: data
 				})
 			})
