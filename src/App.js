@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import IndecisionApp from "./components/IndecisionApp/IndecisionApp";
+import IndecisionApp from "./Components/IndecisionApp/IndecisionApp";
 // import Header from "./components/Header/Header";
 // import Action from "./components/Action/Action";
 // import Options from "./components/Options/Options";

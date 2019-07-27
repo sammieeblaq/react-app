@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react';
 import Option from "./Option/Option";
 
-class Options extends Component {
+const Options = props => {
 
-    handleRemoveAll = () => {
-        alert("HandleRmoveAll")
-    }
-
-    render() {
-        return (
-            <div>
-                <button onClick={ this.handleRemoveAll } >Remove All</button>
-                {
-                    this.props.options.map(option => <Option key={ option } optionText={ option } />)
-                }
-            </div>
-        )
-    }
+    return (
+        <div>
+            <button onClick={ props.handleDeleteOptions } >Remove All</button>
+            {
+                props.options.map(option => (
+                    <Option 
+                        key={ option } 
+                        optionText={ option }
+                        handleDeleteOption={ props.handleDeleteOption }
+                />)
+                )
+            }
+        </div>
+    )
 }
 
 export default Options;
