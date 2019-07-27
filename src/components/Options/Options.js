@@ -12,7 +12,7 @@ const Options = props => {
                         key={ option } 
                         optionText={ option }
                         handleDeleteOption={ props.handleDeleteOption }
-                />)
+                    />)
                 )
             }
         </div>

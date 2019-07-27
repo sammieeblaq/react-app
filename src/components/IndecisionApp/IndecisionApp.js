@@ -8,7 +8,7 @@ import AddOption from "../AddOption/AddOption";
 class IndecisionApp extends Component {
 
     state = {
-        options: this.props.options
+        options: []
     }
 
 
@@ -17,9 +17,11 @@ class IndecisionApp extends Component {
         this.setState(() => ({ options: [] }))
     }
 
-    handleDeleteOption = option => {
-        this.setState(() => {
-            
+    handleDeleteOption = (optionToRemove) => {
+        this.setState(prevState => {
+            options: prevState.options.filter(option => {
+                return optionToRemove !== option;
+            })
         })
     }
     
@@ -64,10 +66,6 @@ class IndecisionApp extends Component {
             </div>
         )
     }
-}
-
-IndecisionApp.defaultProps = {
-    options: []
 }
 
 
