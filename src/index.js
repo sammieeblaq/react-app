@@ -18,6 +18,25 @@ serviceWorker.unregister();
 //         count: 0
 //     }
 
+//     componentDidMount = () => {
+//         try {
+//             const num = localStorage.getItem("count");
+//             const count = parseInt(num, 10);
+
+//             if (!isNaN(count))
+//                 this.setState(() => ({ count }))
+//         } catch (error) {
+            
+//         }
+//     }
+
+//     componentDidUpdate = (prevProps, prevState) => {
+//         if (prevState.count !== this.state.count) {
+//             // const writeNum = this.state.count;
+//             localStorage.setItem("count", this.state.count);
+//         }
+//     }
+
 
 //     handleAddOne = () => {
 //         this.setState(prevState => {

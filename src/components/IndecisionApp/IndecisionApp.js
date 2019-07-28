@@ -11,18 +11,43 @@ class IndecisionApp extends Component {
         options: []
     }
 
+    
+    componentDidMount = () => {
+
+        try {
+            const readJson = localStorage.getItem("options");
+            const options = JSON.parse(readJson);
+
+            if (options) {
+                this.setState(() => ({ options: options }))
+            }
+        } catch (error) {
+            // Do nothing at all.
+        }
+    }
+
+    componentDidUpdate = (prevProps, prevState) => {
+        if (prevState.options.length !== this.state.options.length) {
+            const writeJson = JSON.stringify(this.state.options);
+            localStorage.setItem("options", writeJson);
+        }
+    }
+
+    // componentWillUnmount = () => {
+    //     console.log("componentWillUnmount");
+    // }
 
 
     handleDeleteOptions = () => {
         this.setState(() => ({ options: [] }))
     }
 
-    handleDeleteOption = (optionToRemove) => {
-        this.setState(prevState => {
+    handleDeleteOption = optionToRemove => {
+        this.setState(prevState => ({
             options: prevState.options.filter(option => {
                 return optionToRemove !== option;
             })
-        })
+        }))
     }
     
 
@@ -67,6 +92,5 @@ class IndecisionApp extends Component {
         )
     }
 }
-
 
 export default IndecisionApp;
