@@ -100,7 +100,9 @@ serviceWorker.unregister();
 //         return (
 //             <div>
 //                 <h1>{ app.title }</h1>
-//                 <button onClick={ this.toggleVisibility }>{ !this.state.visibility ? "Show details" : "Hide details" }</button>
+//                 <button onClick={ this.toggleVisibility }>
+//                     { !this.state.visibility ? "Show details" : "Hide details" }
+//                 </button>
 //                 <p hidden={ !this.state.visibility } >{ app.subtitle }</p>
 //             </div>
 //         )
